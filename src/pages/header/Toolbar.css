@@ -1,0 +1,30 @@
+.toolbarPanel {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
+}
+
+.toolbarPanel li {
+    float: right;
+    display: block;
+    width: 65px;
+    height: 100%;
+}
+
+.toolbarPanel li a {
+    display: block;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    color:#999;
+}
+
+.toolbarPanel li a span {
+    border-left: 1px solid #e8e8e8;
+    display: block;
+    float: left;
+    height: 30px;
+    margin-top: 17px;
+}

@@ -1,0 +1,25 @@
+.maxHeight {
+    height: 100%;
+}
+
+.title {
+    float: left;
+    height: 64px;
+    line-height: 64px;
+    width: calc(100% - 1px);
+    text-align: center;
+    font-size: 24px;
+    color: #1890ff;
+    cursor: pointer;
+}
+
+.docSearchAutoComplete {
+    margin-left: 32px;
+    margin-top: 15px;
+    width: calc(100% - 232px);
+    float:left;
+}
+.toolbar{
+    float:right;
+    height: 100%;
+}

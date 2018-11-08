@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "umi-plugin-react": "^1.0.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "codemirror": "^5.40.0",
+    "debounce": "^1.2.0",
+    "immutable": "^3.8.2",
+    "path-to-regexp": "^2.4.0",
+    "prop-types": "^15.6.2",
+    "qs": "^6.5.2",
+    "react-codemirror2": "^5.1.0",
+    "react-intl": "^2.4.0",
+    "react-timeout": "^1.1.2"
+  }
+}
