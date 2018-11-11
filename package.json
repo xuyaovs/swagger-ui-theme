@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "umi-plugin-react": "^1.0.3"
+    "umi-plugin-react": "^1.2.3"
   },
   "dependencies": {
     "axios": "^0.18.0",

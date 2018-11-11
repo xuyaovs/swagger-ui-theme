@@ -85,129 +85,133 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@webassemblyjs/ast@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.7.8.tgz#f31f480debeef957f01b623f27eabc695fa4fe8f"
+"@webassemblyjs/ast@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.7.6.tgz#3ef8c45b3e5e943a153a05281317474fef63e21e"
   dependencies:
-    "@webassemblyjs/helper-module-context" "1.7.8"
-    "@webassemblyjs/helper-wasm-bytecode" "1.7.8"
-    "@webassemblyjs/wast-parser" "1.7.8"
+    "@webassemblyjs/helper-module-context" "1.7.6"
+    "@webassemblyjs/helper-wasm-bytecode" "1.7.6"
+    "@webassemblyjs/wast-parser" "1.7.6"
+    mamacro "^0.0.3"
 
-"@webassemblyjs/floating-point-hex-parser@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/floating-point-hex-parser/download/@webassemblyjs/floating-point-hex-parser-1.7.8.tgz#1b3ed0e27e384032254e9322fc646dd3e70ef1b9"
+"@webassemblyjs/floating-point-hex-parser@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/floating-point-hex-parser/download/@webassemblyjs/floating-point-hex-parser-1.7.6.tgz#7cb37d51a05c3fe09b464ae7e711d1ab3837801f"
 
-"@webassemblyjs/helper-api-error@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-api-error/download/@webassemblyjs/helper-api-error-1.7.8.tgz#a2b49c11f615e736f815ec927f035dcfa690d572"
+"@webassemblyjs/helper-api-error@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-api-error/download/@webassemblyjs/helper-api-error-1.7.6.tgz#99b7e30e66f550a2638299a109dda84a622070ef"
 
-"@webassemblyjs/helper-buffer@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-buffer/download/@webassemblyjs/helper-buffer-1.7.8.tgz#3fc66bfa09c1c60e824cf3d5887826fac062877d"
+"@webassemblyjs/helper-buffer@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-buffer/download/@webassemblyjs/helper-buffer-1.7.6.tgz#ba0648be12bbe560c25c997e175c2018df39ca3e"
 
-"@webassemblyjs/helper-code-frame@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-code-frame/download/@webassemblyjs/helper-code-frame-1.7.8.tgz#cc5a7e9522b70e7580df056dfd34020cf29645b0"
+"@webassemblyjs/helper-code-frame@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-code-frame/download/@webassemblyjs/helper-code-frame-1.7.6.tgz#5a94d21b0057b69a7403fca0c253c3aaca95b1a5"
   dependencies:
-    "@webassemblyjs/wast-printer" "1.7.8"
+    "@webassemblyjs/wast-printer" "1.7.6"
 
-"@webassemblyjs/helper-fsm@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-fsm/download/@webassemblyjs/helper-fsm-1.7.8.tgz#fe4607430af466912797c21acafd3046080182ea"
+"@webassemblyjs/helper-fsm@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-fsm/download/@webassemblyjs/helper-fsm-1.7.6.tgz#ae1741c6f6121213c7a0b587fb964fac492d3e49"
 
-"@webassemblyjs/helper-module-context@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-module-context/download/@webassemblyjs/helper-module-context-1.7.8.tgz#3c2e7ee93d14ff4768ba66fb1be42fdc9dc7160a"
-
-"@webassemblyjs/helper-wasm-bytecode@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-wasm-bytecode/download/@webassemblyjs/helper-wasm-bytecode-1.7.8.tgz#89bdb78cd6dd5209ae2ed2925de78d0f0e00b6f0"
-
-"@webassemblyjs/helper-wasm-section@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-wasm-section/download/@webassemblyjs/helper-wasm-section-1.7.8.tgz#c68ef7d26a6fc12421b2e6e56f9bc810dfb33e87"
+"@webassemblyjs/helper-module-context@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-module-context/download/@webassemblyjs/helper-module-context-1.7.6.tgz#116d19a51a6cebc8900ad53ca34ff8269c668c23"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/helper-buffer" "1.7.8"
-    "@webassemblyjs/helper-wasm-bytecode" "1.7.8"
-    "@webassemblyjs/wasm-gen" "1.7.8"
+    mamacro "^0.0.3"
 
-"@webassemblyjs/ieee754@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/ieee754/download/@webassemblyjs/ieee754-1.7.8.tgz#1f37974b13cb486a9237e73ce04cac7a2f1265ed"
+"@webassemblyjs/helper-wasm-bytecode@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-wasm-bytecode/download/@webassemblyjs/helper-wasm-bytecode-1.7.6.tgz#98e515eaee611aa6834eb5f6a7f8f5b29fefb6f1"
+
+"@webassemblyjs/helper-wasm-section@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/helper-wasm-section/download/@webassemblyjs/helper-wasm-section-1.7.6.tgz#783835867bdd686df7a95377ab64f51a275e8333"
+  dependencies:
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/helper-buffer" "1.7.6"
+    "@webassemblyjs/helper-wasm-bytecode" "1.7.6"
+    "@webassemblyjs/wasm-gen" "1.7.6"
+
+"@webassemblyjs/ieee754@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/ieee754/download/@webassemblyjs/ieee754-1.7.6.tgz#c34fc058f2f831fae0632a8bb9803cf2d3462eb1"
   dependencies:
     "@xtuc/ieee754" "^1.2.0"
 
-"@webassemblyjs/leb128@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/leb128/download/@webassemblyjs/leb128-1.7.8.tgz#1bee83426819192db2ea1a234b84c7ebc6d34c1f"
+"@webassemblyjs/leb128@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/leb128/download/@webassemblyjs/leb128-1.7.6.tgz#197f75376a29f6ed6ace15898a310d871d92f03b"
   dependencies:
     "@xtuc/long" "4.2.1"
 
-"@webassemblyjs/utf8@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/utf8/download/@webassemblyjs/utf8-1.7.8.tgz#2b489d5cf43e0aebb93d8e2d792aff9879c61f05"
+"@webassemblyjs/utf8@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/utf8/download/@webassemblyjs/utf8-1.7.6.tgz#eb62c66f906af2be70de0302e29055d25188797d"
 
-"@webassemblyjs/wasm-edit@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-edit/download/@webassemblyjs/wasm-edit-1.7.8.tgz#f8bdbe7088718eca27b1c349bb7c06b8a457950c"
+"@webassemblyjs/wasm-edit@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-edit/download/@webassemblyjs/wasm-edit-1.7.6.tgz#fa41929160cd7d676d4c28ecef420eed5b3733c5"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/helper-buffer" "1.7.8"
-    "@webassemblyjs/helper-wasm-bytecode" "1.7.8"
-    "@webassemblyjs/helper-wasm-section" "1.7.8"
-    "@webassemblyjs/wasm-gen" "1.7.8"
-    "@webassemblyjs/wasm-opt" "1.7.8"
-    "@webassemblyjs/wasm-parser" "1.7.8"
-    "@webassemblyjs/wast-printer" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/helper-buffer" "1.7.6"
+    "@webassemblyjs/helper-wasm-bytecode" "1.7.6"
+    "@webassemblyjs/helper-wasm-section" "1.7.6"
+    "@webassemblyjs/wasm-gen" "1.7.6"
+    "@webassemblyjs/wasm-opt" "1.7.6"
+    "@webassemblyjs/wasm-parser" "1.7.6"
+    "@webassemblyjs/wast-printer" "1.7.6"
 
-"@webassemblyjs/wasm-gen@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-gen/download/@webassemblyjs/wasm-gen-1.7.8.tgz#7e8abf1545eae74ac6781d545c034af3cfd0c7d5"
+"@webassemblyjs/wasm-gen@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-gen/download/@webassemblyjs/wasm-gen-1.7.6.tgz#695ac38861ab3d72bf763c8c75e5f087ffabc322"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/helper-wasm-bytecode" "1.7.8"
-    "@webassemblyjs/ieee754" "1.7.8"
-    "@webassemblyjs/leb128" "1.7.8"
-    "@webassemblyjs/utf8" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/helper-wasm-bytecode" "1.7.6"
+    "@webassemblyjs/ieee754" "1.7.6"
+    "@webassemblyjs/leb128" "1.7.6"
+    "@webassemblyjs/utf8" "1.7.6"
 
-"@webassemblyjs/wasm-opt@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-opt/download/@webassemblyjs/wasm-opt-1.7.8.tgz#7ada6e211914728fce02ff0ff9c344edc6d41f26"
+"@webassemblyjs/wasm-opt@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-opt/download/@webassemblyjs/wasm-opt-1.7.6.tgz#fbafa78e27e1a75ab759a4b658ff3d50b4636c21"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/helper-buffer" "1.7.8"
-    "@webassemblyjs/wasm-gen" "1.7.8"
-    "@webassemblyjs/wasm-parser" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/helper-buffer" "1.7.6"
+    "@webassemblyjs/wasm-gen" "1.7.6"
+    "@webassemblyjs/wasm-parser" "1.7.6"
 
-"@webassemblyjs/wasm-parser@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-parser/download/@webassemblyjs/wasm-parser-1.7.8.tgz#dac47c291fb6a3e63529aecd647592cd34afbf94"
+"@webassemblyjs/wasm-parser@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/wasm-parser/download/@webassemblyjs/wasm-parser-1.7.6.tgz#84eafeeff405ad6f4c4b5777d6a28ae54eed51fe"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/helper-api-error" "1.7.8"
-    "@webassemblyjs/helper-wasm-bytecode" "1.7.8"
-    "@webassemblyjs/ieee754" "1.7.8"
-    "@webassemblyjs/leb128" "1.7.8"
-    "@webassemblyjs/utf8" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/helper-api-error" "1.7.6"
+    "@webassemblyjs/helper-wasm-bytecode" "1.7.6"
+    "@webassemblyjs/ieee754" "1.7.6"
+    "@webassemblyjs/leb128" "1.7.6"
+    "@webassemblyjs/utf8" "1.7.6"
 
-"@webassemblyjs/wast-parser@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/wast-parser/download/@webassemblyjs/wast-parser-1.7.8.tgz#f8aab9a450c048c1f9537695c89faeb92fabfba5"
+"@webassemblyjs/wast-parser@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/wast-parser/download/@webassemblyjs/wast-parser-1.7.6.tgz#ca4d20b1516e017c91981773bd7e819d6bd9c6a7"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/floating-point-hex-parser" "1.7.8"
-    "@webassemblyjs/helper-api-error" "1.7.8"
-    "@webassemblyjs/helper-code-frame" "1.7.8"
-    "@webassemblyjs/helper-fsm" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/floating-point-hex-parser" "1.7.6"
+    "@webassemblyjs/helper-api-error" "1.7.6"
+    "@webassemblyjs/helper-code-frame" "1.7.6"
+    "@webassemblyjs/helper-fsm" "1.7.6"
     "@xtuc/long" "4.2.1"
+    mamacro "^0.0.3"
 
-"@webassemblyjs/wast-printer@1.7.8":
-  version "1.7.8"
-  resolved "http://registry.npm.taobao.org/@webassemblyjs/wast-printer/download/@webassemblyjs/wast-printer-1.7.8.tgz#e7e965782c1912f6a965f14a53ff43d8ad0403a5"
+"@webassemblyjs/wast-printer@1.7.6":
+  version "1.7.6"
+  resolved "http://registry.npm.taobao.org/@webassemblyjs/wast-printer/download/@webassemblyjs/wast-printer-1.7.6.tgz#a6002c526ac5fa230fe2c6d2f1bdbf4aead43a5e"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/wast-parser" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/wast-parser" "1.7.6"
     "@xtuc/long" "4.2.1"
 
 "@xtuc/ieee754@^1.2.0":
@@ -909,12 +913,6 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
 
-deep-eql@~3.0.1:
-  version "3.0.1"
-  resolved "http://registry.npm.taobao.org/deep-eql/download/deep-eql-3.0.1.tgz#dfc9404400ad1c8fe023e7da1df1c147c4b444df"
-  dependencies:
-    type-detect "^4.0.0"
-
 deep-extend@^0.6.0:
   version "0.6.0"
   resolved "http://registry.npm.taobao.org/deep-extend/download/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
@@ -945,6 +943,10 @@ delegates@^1.0.0:
 depd@~1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/depd/download/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
+
+deprecate@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/deprecate/download/deprecate-1.0.0.tgz#661490ed2428916a6c8883d8834e5646f4e4a4a8"
 
 des.js@^1.0.0:
   version "1.0.0"
@@ -1019,11 +1021,11 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-dva-core@^1.4.0:
-  version "1.4.0"
-  resolved "http://registry.npm.taobao.org/dva-core/download/dva-core-1.4.0.tgz#30aed800b97f07f768e42049094ee3150f48c5d3"
+dva-core@^1.5.0-beta.2:
+  version "1.5.0-beta.2"
+  resolved "http://registry.npm.taobao.org/dva-core/download/dva-core-1.5.0-beta.2.tgz#f8d37948dc3b03cb8101a3698d720c0daecb8186"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.46"
+    "@babel/runtime" "^7.0.0"
     flatten "^1.0.2"
     global "^4.3.2"
     invariant "^2.2.1"
@@ -1039,21 +1041,21 @@ dva-immer@^0.2.3:
     "@babel/runtime" "7.0.0-beta.46"
     immer "^1.2.1"
 
-dva-loading@^2.0.5:
-  version "2.0.5"
-  resolved "http://registry.npm.taobao.org/dva-loading/download/dva-loading-2.0.5.tgz#b9dd0e722f70dcc60f0539d1cc73945432a913ae"
+dva-loading@^2.1.0-beta.2:
+  version "2.1.0-beta.2"
+  resolved "http://registry.npm.taobao.org/dva-loading/download/dva-loading-2.1.0-beta.2.tgz#e7711ad8d362340da625b05625de647365c0375c"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.46"
+    "@babel/runtime" "^7.0.0"
 
-dva@^2.4.0:
-  version "2.4.0"
-  resolved "http://registry.npm.taobao.org/dva/download/dva-2.4.0.tgz#57a29288dde0163cdaf2a2a955c8ec51cfccdea5"
+dva@^2.5.0-beta.2:
+  version "2.5.0-beta.2"
+  resolved "http://registry.npm.taobao.org/dva/download/dva-2.5.0-beta.2.tgz#a66607bac776e704f4475c8a5146f0bd2dbd16dd"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.46"
+    "@babel/runtime" "^7.0.0"
     "@types/isomorphic-fetch" "^0.0.34"
     "@types/react-router-dom" "^4.2.7"
     "@types/react-router-redux" "^5.0.13"
-    dva-core "^1.4.0"
+    dva-core "^1.5.0-beta.2"
     global "^4.3.2"
     history "^4.6.3"
     invariant "^2.2.2"
@@ -1582,6 +1584,10 @@ intl-relativeformat@^2.1.0:
   dependencies:
     intl-messageformat "^2.0.0"
 
+intl@^1.2.5:
+  version "1.2.5"
+  resolved "http://registry.npm.taobao.org/intl/download/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+
 invariant@^2.0.0, invariant@^2.1.1, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "http://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -1701,6 +1707,10 @@ is-regexp@^1.0.0:
 is-stream@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/is-stream/download/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
+
+is-url@^1.2.4:
+  version "1.2.4"
+  resolved "http://registry.npm.taobao.org/is-url/download/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
 
 is-windows@^1.0.2:
   version "1.0.2"
@@ -1909,6 +1919,10 @@ make-dir@^1.0.0:
   resolved "http://registry.npm.taobao.org/make-dir/download/make-dir-1.3.0.tgz#79c1033b80515bd6d24ec9933e860ca75ee27f0c"
   dependencies:
     pify "^3.0.0"
+
+mamacro@^0.0.3:
+  version "0.0.3"
+  resolved "http://registry.npm.taobao.org/mamacro/download/mamacro-0.0.3.tgz#ad2c9576197c9f1abf308d0787865bd975a3f3e4"
 
 map-cache@^0.2.2:
   version "0.2.2"
@@ -2495,7 +2509,7 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/querystring/download/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
 
-raf@3.4.0, raf@^3.1.0, raf@^3.3.2, raf@^3.4.0, raf@~3.4.0:
+raf@3.4.0, raf@^3.1.0, raf@^3.3.2, raf@^3.4.0:
   version "3.4.0"
   resolved "http://registry.npm.taobao.org/raf/download/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
   dependencies:
@@ -2736,14 +2750,6 @@ rc-progress@~2.2.2:
     babel-runtime "6.x"
     prop-types "^15.5.8"
 
-rc-queue-anim@^1.6.6:
-  version "1.6.6"
-  resolved "http://registry.npm.taobao.org/rc-queue-anim/download/rc-queue-anim-1.6.6.tgz#eb8f278fc91c49330ccbb577e81515b235fee1ed"
-  dependencies:
-    babel-runtime "6.x"
-    prop-types "^15.6.0"
-    rc-tween-one "^2.2.8"
-
 rc-rate@~2.4.0:
   version "2.4.2"
   resolved "http://registry.npm.taobao.org/rc-rate/download/rc-rate-2.4.2.tgz#c097bfdba7a5783cec287c928b1461cc1621f836"
@@ -2915,17 +2921,6 @@ rc-trigger@^3.0.0-rc.2:
     rc-align "^2.4.1"
     rc-animate "^3.0.0-rc.1"
     rc-util "^4.4.0"
-
-rc-tween-one@^2.2.8:
-  version "2.2.8"
-  resolved "http://registry.npm.taobao.org/rc-tween-one/download/rc-tween-one-2.2.8.tgz#3474bafac2b901d0df87f1177fd7210228b70b36"
-  dependencies:
-    babel-runtime "6.x"
-    deep-eql "~3.0.1"
-    prop-types "^15.6.1"
-    raf "~3.4.0"
-    style-utils "~0.1.13"
-    tween-functions "~1.2.0"
 
 rc-upload@~2.5.0:
   version "2.5.1"
@@ -3588,10 +3583,6 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/strip-json-comments/download/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-utils@~0.1.13:
-  version "0.1.21"
-  resolved "http://registry.npm.taobao.org/style-utils/download/style-utils-0.1.21.tgz#18578663b943e0d64f2f8471ab5c7a4a0108a0e1"
-
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -3683,13 +3674,9 @@ tty-browserify@0.0.0:
   version "0.0.0"
   resolved "http://registry.npm.taobao.org/tty-browserify/download/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
 
-tween-functions@^1.0.1, tween-functions@~1.2.0:
+tween-functions@^1.0.1:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/tween-functions/download/tween-functions-1.2.0.tgz#1ae3a50e7c60bb3def774eac707acbca73bbc3ff"
-
-type-detect@^4.0.0:
-  version "4.0.8"
-  resolved "http://registry.npm.taobao.org/type-detect/download/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
 
 typedarray@^0.0.6:
   version "0.0.6"
@@ -3723,51 +3710,61 @@ umi-hd@^5.0.1:
   version "5.0.1"
   resolved "http://registry.npm.taobao.org/umi-hd/download/umi-hd-5.0.1.tgz#59061d3f4aad70491b7c853525aced91afbe1e21"
 
-umi-plugin-dll@^1.0.1:
-  version "1.0.1"
-  resolved "http://registry.npm.taobao.org/umi-plugin-dll/download/umi-plugin-dll-1.0.1.tgz#2eb8c7a31269a44e53f73129ff5fa28c116ee411"
+umi-plugin-dll@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/umi-plugin-dll/download/umi-plugin-dll-1.2.0.tgz#d2e0863fccb881f732af0a0c39e8e02e223d5369"
   dependencies:
     lodash.pullall "^4.2.0"
     lodash.uniq "^4.5.0"
     rimraf "^2.6.2"
     serve-static "^1.13.2"
 
-umi-plugin-dva@^1.0.1:
-  version "1.0.1"
-  resolved "http://registry.npm.taobao.org/umi-plugin-dva/download/umi-plugin-dva-1.0.1.tgz#911cc0734d5517555c3bc00c7bc0280b2dcfbc96"
+umi-plugin-dva@^1.2.1:
+  version "1.2.1"
+  resolved "http://registry.npm.taobao.org/umi-plugin-dva/download/umi-plugin-dva-1.2.1.tgz#37b93394eb558eaeed2aa1e2c25580871cd557b8"
   dependencies:
     babel-plugin-dva-hmr "^0.4.1"
-    dva "^2.4.0"
+    dva "^2.5.0-beta.2"
     dva-immer "^0.2.3"
-    dva-loading "^2.0.5"
+    dva-loading "^2.1.0-beta.2"
     globby "^7.1.1"
     lodash.uniq "^4.5.0"
     object-assign "^4.1.1"
     path-is-root "^0.1.0"
     path-to-regexp "^1.7.0"
-    slash2 "^2.0.0"
+    umi-utils "^1.2.1"
 
-umi-plugin-locale@^2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/umi-plugin-locale/download/umi-plugin-locale-2.0.0.tgz#a0b8080eeb606b7586e1931e7ce96da9ea8320dd"
+umi-plugin-hd@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/umi-plugin-hd/download/umi-plugin-hd-1.2.0.tgz#0baa9de53e6f93ba0edcdf909c857283216b5172"
   dependencies:
+    postcss-plugin-px2rem "^0.7.0"
+    umi-hd "^5.0.1"
+
+umi-plugin-locale@^2.2.2:
+  version "2.2.2"
+  resolved "http://registry.npm.taobao.org/umi-plugin-locale/download/umi-plugin-locale-2.2.2.tgz#581e6329b12ccd762224b667dfe8ce2e2fe046a2"
+  dependencies:
+    intl "^1.2.5"
+    moment "2.x"
     mustache "^2.3.0"
     prop-types "^15.6.2"
     react-intl "^2.4.0"
-    umi-utils "^0.2.2"
+    umi-utils "^1.2.1"
 
-umi-plugin-polyfills@^1.0.2:
-  version "1.0.2"
-  resolved "http://registry.npm.taobao.org/umi-plugin-polyfills/download/umi-plugin-polyfills-1.0.2.tgz#9e56c9c462356ad91010b4d35157feb9b8521e2c"
+umi-plugin-polyfills@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/umi-plugin-polyfills/download/umi-plugin-polyfills-1.2.0.tgz#4ba6df89decd10f651d78a13557e602c91965bff"
   dependencies:
     core-js "^2.5.7"
+    deprecate "1.0.0"
     raf "3.4.0"
     setprototypeof "^1.1.0"
     url-polyfill "^1.0.14"
 
-umi-plugin-react@^1.0.3:
-  version "1.0.3"
-  resolved "http://registry.npm.taobao.org/umi-plugin-react/download/umi-plugin-react-1.0.3.tgz#bba71eaed135af793a2daa9b2f80551ec3b371a2"
+umi-plugin-react@^1.2.3:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/umi-plugin-react/download/umi-plugin-react-1.2.3.tgz#4f888b523d2c93c8d2f60bd74db3efd6fb04edcf"
   dependencies:
     antd "^3.8.1"
     antd-mobile "^2.2.3"
@@ -3775,27 +3772,27 @@ umi-plugin-react@^1.0.3:
     fastclick "^1.0.6"
     is-plain-object "^2.0.4"
     lodash.isequal "^4.5.0"
-    postcss-plugin-px2rem "^0.7.0"
     preact "^8.3.1"
     preact-compat "^3.18.3"
     register-service-worker "^1.4.1"
-    umi-hd "^5.0.1"
-    umi-plugin-dll "^1.0.1"
-    umi-plugin-dva "^1.0.1"
-    umi-plugin-locale "^2.0.0"
-    umi-plugin-polyfills "^1.0.2"
+    umi-plugin-dll "^1.2.0"
+    umi-plugin-dva "^1.2.1"
+    umi-plugin-hd "^1.2.0"
+    umi-plugin-locale "^2.2.2"
+    umi-plugin-polyfills "^1.2.0"
     umi-plugin-routes "^1.0.1"
-    webpack "^4.16.5"
+    webpack "4.19.0"
     workbox-webpack-plugin "^3.4.1"
 
 umi-plugin-routes@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/umi-plugin-routes/download/umi-plugin-routes-1.0.1.tgz#edea744a4814def24e3336d612bbd00b010f351d"
 
-umi-utils@^0.2.2:
-  version "0.2.2"
-  resolved "http://registry.npm.taobao.org/umi-utils/download/umi-utils-0.2.2.tgz#21b50e988b05bca677aea423a242434a323fbf1d"
+umi-utils@^1.2.1:
+  version "1.2.1"
+  resolved "http://registry.npm.taobao.org/umi-utils/download/umi-utils-1.2.1.tgz#f39edecf4461db114a15085ff3fb7371ba333d9d"
   dependencies:
+    is-url "^1.2.4"
     slash2 "^2.0.0"
 
 union-value@^1.0.0:
@@ -3911,21 +3908,21 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-sources@^1.1.0, webpack-sources@^1.3.0:
+webpack-sources@^1.1.0, webpack-sources@^1.2.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/webpack-sources/download/webpack-sources-1.3.0.tgz#2a28dcb9f1f45fe960d8f1493252b5ee6530fa85"
   dependencies:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.16.5:
-  version "4.20.2"
-  resolved "http://registry.npm.taobao.org/webpack/download/webpack-4.20.2.tgz#89f6486b6bb276a91b0823453d377501fc625b5a"
+webpack@4.19.0:
+  version "4.19.0"
+  resolved "http://registry.npm.taobao.org/webpack/download/webpack-4.19.0.tgz#252296c8af2d21c0994911007defdb3913a7bc66"
   dependencies:
-    "@webassemblyjs/ast" "1.7.8"
-    "@webassemblyjs/helper-module-context" "1.7.8"
-    "@webassemblyjs/wasm-edit" "1.7.8"
-    "@webassemblyjs/wasm-parser" "1.7.8"
+    "@webassemblyjs/ast" "1.7.6"
+    "@webassemblyjs/helper-module-context" "1.7.6"
+    "@webassemblyjs/wasm-edit" "1.7.6"
+    "@webassemblyjs/wasm-parser" "1.7.6"
     acorn "^5.6.2"
     acorn-dynamic-import "^3.0.0"
     ajv "^6.1.0"
@@ -3945,7 +3942,7 @@ webpack@^4.16.5:
     tapable "^1.1.0"
     uglifyjs-webpack-plugin "^1.2.4"
     watchpack "^1.5.0"
-    webpack-sources "^1.3.0"
+    webpack-sources "^1.2.0"
 
 whatwg-fetch@>=0.10.0:
   version "3.0.0"

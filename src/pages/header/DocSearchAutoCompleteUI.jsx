@@ -74,7 +74,16 @@ class DocSearchAutoCompleteUI extends Component {
     }
 
     onHandleChange(value) {
-        const realVal = value.trim();
+        let realVal = value.trim().toLowerCase();
+
+        if (realVal.startsWith("http://")) {
+            realVal = realVal.replace(/http:\/\//, "")
+        } else if (realVal.startsWith("https://")) {
+            realVal = realVal.replace(/https:\/\//, "")
+        }
+        if (realVal.endsWith("/v2/api-docs")) {
+            realVal = realVal.substring(0, realVal.length - "/v2/api-docs".length);
+        }
         if (Util.strNotBlank(realVal)) {
             if (realVal.indexOf('loc') >= 0) {
                 const tipsArr = [
@@ -85,7 +94,7 @@ class DocSearchAutoCompleteUI extends Component {
                 ];
                 if (realVal.indexOf('/') >= 0) {
                     this.setState({
-                        dataSourceArr: [realVal+'/v2/api-docs'],
+                        dataSourceArr: [realVal + '/v2/api-docs'],
                         docUrlSuffix: realVal
                     });
                 } else {

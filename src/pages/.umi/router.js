@@ -40,7 +40,7 @@ let routes = [
         "_title_default": "Swagger UI Theme"
       },
       {
-        "component": () => React.createElement(require('C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true }),
+        "component": () => React.createElement(require('/Users/pan/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true }),
         "_title": "Swagger UI Theme",
         "_title_default": "Swagger UI Theme"
       }
@@ -49,7 +49,7 @@ let routes = [
     "_title_default": "Swagger UI Theme"
   },
   {
-    "component": () => React.createElement(require('C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true }),
+    "component": () => React.createElement(require('/Users/pan/.config/yarn/global/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true }),
     "_title": "Swagger UI Theme",
     "_title_default": "Swagger UI Theme"
   }
