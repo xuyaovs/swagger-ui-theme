@@ -27,7 +27,7 @@ class ApiDetailExtract {
             fileParams: fileParams
         }
 
-        if(typeof(parameters)!=='undefined'){
+        if (typeof(parameters) !== 'undefined') {
             for (let singleParam of parameters) {
                 if ('header' === singleParam.in) {
                     headerParams.push(this.extractSingleSimpleParam(singleParam));
@@ -37,12 +37,11 @@ class ApiDetailExtract {
                     pathParams.push(this.extractSingleSimpleParam(singleParam));
                 }
                 if ('body' === singleParam.in) {
-                    console.log(singleParam['schema']);
-                    console.log(singleParam['schema']['$ref']);
-                    if(typeof(singleParam['schema']['$ref'])!=='undefined'){
+
+                    if (typeof(singleParam['schema']['$ref']) !== 'undefined') {
                         const realParamTypeName = this.extractRealParamTypeName(singleParam['schema']['$ref']);
                         const realRaramTypeDefine = definitions[realParamTypeName];
-                        if(typeof(realRaramTypeDefine)!=='undefined'){
+                        if (typeof(realRaramTypeDefine) !== 'undefined') {
                             const paramArr = this.extractSingleComplexParam(realRaramTypeDefine, definitions, 0);
                             for (const p of paramArr) {
                                 bodyParams.push(p);
@@ -110,9 +109,16 @@ class ApiDetailExtract {
         return paramDefine;
     }
 
+    /**
+     * 抽取复杂的请求参数
+     * @param complexTypeDefine
+     * @param definitions
+     * @param callSize
+     * @returns {Array}
+     */
     extractSingleComplexParam(complexTypeDefine, definitions, callSize) {
         const resultArr = [];
-        if (callSize > 6) {//避免陷入无限递归
+        if (callSize > 6) {//避免陷入无限递归(设置最大递归层数)
             return resultArr;
         }
         if (typeof (complexTypeDefine.properties) !== 'undefined' && null !== complexTypeDefine.properties) {
@@ -138,12 +144,25 @@ class ApiDetailExtract {
                     }
                 } else if (complexTypeDefine.properties[paramName].type === 'object') {
                     const required = Util.arrayContainsVal(complexTypeDefine.required, paramName);
-                    const realTypeName = this.extractRealParamTypeName(paramName);
+                    let realTypeName = this.extractRealParamTypeName(paramName);
+                    console.log(paramName, definitions[realTypeName], complexTypeDefine.properties[paramName])
                     if (typeof (definitions[realTypeName]) !== 'undefined') {
                         const treeNode = {
                             key: ++this.globalKey,
                             name: paramName,
                             type: 'object',
+                            description: complexTypeDefine.properties[paramName].description,
+                            required: required,
+                            children: this.extractSingleComplexParam(definitions[realTypeName], definitions, ++callSize)
+                        }
+                        resultArr.push(treeNode);
+                    } else if (typeof(complexTypeDefine.properties[paramName].additionalProperties) !== 'undefined' && typeof(complexTypeDefine.properties[paramName].additionalProperties['$ref'])!=='undefined') {
+                        let additionalProperties = complexTypeDefine.properties[paramName].additionalProperties;
+                        realTypeName = this.extractRealParamTypeName(additionalProperties['$ref']);
+                        const treeNode = {
+                            key: ++this.globalKey,
+                            name: paramName,
+                            type: 'object<*,Object>',
                             description: complexTypeDefine.properties[paramName].description,
                             required: required,
                             children: this.extractSingleComplexParam(definitions[realTypeName], definitions, ++callSize)
@@ -212,7 +231,7 @@ class ApiDetailExtract {
             if ('undefined' !== typeof (responses[respCode].schema)) {
                 console.log(responses[respCode].schema);
                 let realTypeName = null;
-                if(typeof(responses[respCode].schema.$ref)==='undefined'){
+                if (typeof(responses[respCode].schema.$ref) === 'undefined') {
                     realTypeName = responses[respCode].schema.type;
                     responseArr.push({
                         key: ++this.globalKey,
@@ -220,8 +239,8 @@ class ApiDetailExtract {
                         description: responses[respCode].description,
                         responseStructArr: []
                     })
-                }else{
-                    realTypeName=this.extractRealParamTypeName(responses[respCode].schema.$ref);
+                } else {
+                    realTypeName = this.extractRealParamTypeName(responses[respCode].schema.$ref);
                     responseArr.push({
                         key: ++this.globalKey,
                         code: respCode,
@@ -254,8 +273,8 @@ export default (docRespData) => {
      *  "tagName":{description,apiArr}
      * }
      */
-    // const start = new Date();
-    // let x = 0;
+        // const start = new Date();
+        // let x = 0;
     const apiInfoMap = {};
     if (tags) {
         let key = 0;
@@ -274,15 +293,13 @@ export default (docRespData) => {
         if (paths) {
             const extract = new ApiDetailExtract();
             for (const path in paths) {
-                console.log(path,'start');
                 extract.resetGlobalKey();//每次都重置这个key为0,让key值不至于过大
                 for (const method in paths[path]) {
 
                     const reqParams = extract.extractParam(paths[path][method].parameters, definitions);
-                    console.log(method,path,'start');
 
                     const responseArr = extract.extractReponse(paths[path][method].responses, definitions);
-                    console.log(method,path,'startstart');
+
                     const treeNode = {
                         operationId: paths[path][method].operationId,
                         key: paths[path][method].operationId,
@@ -300,17 +317,17 @@ export default (docRespData) => {
                         responseArr: responseArr
                     }
 
-                    if(typeof(paths[path][method].tags)!=='undefined' && null!==paths[path][method].tags && paths[path][method].tags.length>0){
-                        for(let tagName of paths[path][method].tags){
+                    if (typeof(paths[path][method].tags) !== 'undefined' && null !== paths[path][method].tags && paths[path][method].tags.length > 0) {
+                        for (let tagName of paths[path][method].tags) {
                             // ++x;
                             const singleTag = apiInfoMap[tagName];
-                            if(typeof(singleTag)!=='undefined' && null!==singleTag){
-                                singleTag.apiArr.push({...treeNode,tagDesc: singleTag.description});
+                            if (typeof(singleTag) !== 'undefined' && null !== singleTag) {
+                                singleTag.apiArr.push({...treeNode, tagDesc: singleTag.description});
                             }
                         }
                     }
                 }
-                console.log(path,'end');
+
             }
         }
 
