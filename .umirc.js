@@ -35,5 +35,30 @@ export default {
                 // {path: '/redirect/:type/:url', redirect: '/:type/:url'}
             ]
         },
-    ]
+    ],
+    // 这个应该在build的时候放开,开发时应该注释掉,否则打包速度太慢
+    chainWebpack(config, { webpack }) {
+        config.merge({
+            plugin: {
+                install: {
+                    plugin: require('uglifyjs-webpack-plugin'),
+                    args: [{
+                        sourceMap: false,
+                        uglifyOptions: {
+                            compress: {
+                                // 删除所有的 `console` 语句
+                                drop_console: true,
+                            },
+                            output: {
+                                // 最紧凑的输出
+                                beautify: false,
+                                // 删除所有的注释
+                                comments: false,
+                            },
+                        }
+                    }]
+                }
+            }
+        })
+    }
 }

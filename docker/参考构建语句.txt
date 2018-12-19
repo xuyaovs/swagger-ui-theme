@@ -1,0 +1,5 @@
+参考构建语句:
+docker build -t swagger-ui-theme:1.0 .
+
+参考运行语句:
+docker run -d --name swagger-ui-theme -p 8088:80 swagger-ui-theme:1.0

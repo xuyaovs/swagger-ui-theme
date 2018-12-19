@@ -24,6 +24,7 @@ class TestForm extends Component {
         this.createFormParamFormItems = this.createFormParamFormItems.bind(this);
         this.createBodyParamFormItems = this.createBodyParamFormItems.bind(this);
         this.createFileUploadFormItem = this.createFileUploadFormItem.bind(this);
+        this.buildObjectInitVal = this.buildObjectInitVal.bind(this);
         this.onSubmitForm = this.onSubmitForm.bind(this);
         const {clickedApi} = props;
         if (clickedApi.bodyParams.length > 0) {
@@ -194,7 +195,24 @@ class TestForm extends Component {
         }
     }
 
-
+    buildObjectInitVal(obj){
+        const initVal = {};
+        for(let i=0;i<obj.children.length;i++){
+            const singleParam = obj.children[i];
+            let paramVal ;
+            const paramName = singleParam.name;
+            if(singleParam.type==='object'){
+                paramVal = this.buildObjectInitVal(singleParam);
+            }else{
+                paramVal = singleParam.default === '' ? singleParam.example : singleParam.default;
+                if (paramVal === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
+                    paramVal=[];
+                }
+            }
+            initVal[paramName]=paramVal;
+        }
+        return initVal;
+    }
     /**
      * 创建请求体参数表单项
      */
@@ -202,14 +220,21 @@ class TestForm extends Component {
         const {clickedApi} = this.props;
         if (clickedApi.bodyParams && clickedApi.bodyParams.length > 0) {
             let reqData = {};
+            console.log(clickedApi.bodyParams)
             for (const singleParam of clickedApi.bodyParams) {
                 const paramName = singleParam.name;
-                let initialValue = singleParam.default === '' ? singleParam.example : singleParam.default;
-                if (initialValue === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
-                    initialValue=[];
+                let initialValue;
+                if(singleParam.type==='object'){
+                    initialValue = this.buildObjectInitVal(singleParam);
+                }else{
+                    initialValue = singleParam.default === '' ? singleParam.example : singleParam.default;
+                    if (initialValue === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
+                        initialValue=[];
+                    }
                 }
                 reqData[paramName] = initialValue;
             }
+            console.log(reqData)
             const that = this;
             return (
                 <div>
