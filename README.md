@@ -25,7 +25,7 @@ react + umiJs + ant design
 
 方式二:
 
-* 命令行进入`docker/dist`执行docker命令,打包为一个镜像
+* 命令行进入`docker`目录,执行docker命令,打包为一个镜像
  `docker build -t swagger-ui-theme:1.0 .`
 * 运行docker容器
   `docker run -d --name swagger-ui-theme -p 8088:80 swagger-ui-theme:1.0` 
@@ -79,7 +79,7 @@ public void downloadSingle(@RequestBody TableCodeGeneratorConfigDTO tableCodeGen
 }
 ```
 
-关于如何实现post文件下载,可参考我的简书: https://www.jianshu.com/p/a3c921b69ab1
+post文件下载,详细的前后端代码实现,可参考我的简书: https://www.jianshu.com/p/a3c921b69ab1
 
 
 
