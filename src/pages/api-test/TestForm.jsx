@@ -26,6 +26,7 @@ class TestForm extends Component {
         this.createFileUploadFormItem = this.createFileUploadFormItem.bind(this);
         this.buildObjectInitVal = this.buildObjectInitVal.bind(this);
         this.onSubmitForm = this.onSubmitForm.bind(this);
+        this.buildResponsePanel = this.buildResponsePanel.bind(this);
         const {clickedApi} = props;
         if (clickedApi.bodyParams.length > 0) {
             let reqData = {};
@@ -33,7 +34,7 @@ class TestForm extends Component {
                 const paramName = singleParam.name;
                 let initialValue = singleParam.default === '' ? singleParam.example : singleParam.default;
                 if (initialValue === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
-                    initialValue=[];
+                    initialValue = [];
                 }
                 reqData[paramName] = initialValue;
             }
@@ -195,24 +196,25 @@ class TestForm extends Component {
         }
     }
 
-    buildObjectInitVal(obj){
+    buildObjectInitVal(obj) {
         const initVal = {};
-        for(let i=0;i<obj.children.length;i++){
+        for (let i = 0; i < obj.children.length; i++) {
             const singleParam = obj.children[i];
-            let paramVal ;
+            let paramVal;
             const paramName = singleParam.name;
-            if(singleParam.type==='object'){
+            if (singleParam.type === 'object') {
                 paramVal = this.buildObjectInitVal(singleParam);
-            }else{
+            } else {
                 paramVal = singleParam.default === '' ? singleParam.example : singleParam.default;
                 if (paramVal === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
-                    paramVal=[];
+                    paramVal = [];
                 }
             }
-            initVal[paramName]=paramVal;
+            initVal[paramName] = paramVal;
         }
         return initVal;
     }
+
     /**
      * 创建请求体参数表单项
      */
@@ -224,12 +226,12 @@ class TestForm extends Component {
             for (const singleParam of clickedApi.bodyParams) {
                 const paramName = singleParam.name;
                 let initialValue;
-                if(singleParam.type==='object'){
+                if (singleParam.type === 'object') {
                     initialValue = this.buildObjectInitVal(singleParam);
-                }else{
+                } else {
                     initialValue = singleParam.default === '' ? singleParam.example : singleParam.default;
                     if (initialValue === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
-                        initialValue=[];
+                        initialValue = [];
                     }
                 }
                 reqData[paramName] = initialValue;
@@ -320,7 +322,7 @@ class TestForm extends Component {
         const apiUrlPrefix = this.props.apiUrlPrefix;
         const basePath = clickedApi.basePath;
         this.props.form.validateFields((err, values) => {
-            const testApiUrl = httpType + apiUrlPrefix +basePath+ Util.formReplacePathVar(clickedApi.path, values['__path']);
+            const testApiUrl = httpType + apiUrlPrefix + basePath + Util.formReplacePathVar(clickedApi.path, values['__path']);
             if ('undefined' !== typeof (this.state['__bodyForm'])) {
                 values['__bodyForm'] = this.state['__bodyForm'];
             }
@@ -332,17 +334,71 @@ class TestForm extends Component {
                         serverResp: '服务器未给出任何响应. \r\n可能的原因: \r\n1.网络异常. \r\n2.服务器响应超时 \r\n3.客户端的超时时间设置过短 \r\n4.测试地址错误'
                     })
                 } else {
-                    that.setState({
-                        apiExecute: false,
-                        serverResp: JSON.stringify(result, null, 3)
-                    })
+                    let isBinaryResult = false;
+                    if (-1 !== result.headers['content-type'].indexOf('octet-stream')
+                        || -1 !== result.headers['content-type'].indexOf('excel')
+                        || -1 !== result.headers['content-type'].indexOf('download')
+                        || -1 !== result.headers['content-type'].indexOf('pdf')
+                        || -1 !== result.headers['content-type'].indexOf('word')) {
+                        isBinaryResult = true;
+                    }
+                    if (isBinaryResult) {
+                        let url = window.URL.createObjectURL(new Blob([result.data]));
+                        let link = document.createElement('a');
+                        link.href = url;
+                        let fileName = '后台返回的下载文件(未在content-disposition中找到文件名)';
+                        let orignalFileName = null;
+                        if (result.headers['content-disposition']) {
+                            let tmp = result.headers['content-disposition'].replace(new RegExp("attachment;filename=", 'gm'), "");
+                            if ('' !== tmp) {
+                                fileName = decodeURI(tmp);
+                                orignalFileName = tmp;
+                            }
+                        }
+                        link.setAttribute('download', fileName);
+                        link.setAttribute('id', 'real-download-file');
+                        link.textContent = fileName;
+                        let oldLink = document.getElementById('real-download-file');
+                        if (oldLink) {
+                            oldLink.remove();
+                        }
+                        document.getElementById('download-file').appendChild(link);
+                        console.log(document.getElementById('download-file'))
+                        that.setState({
+                            apiExecute: false
+                        })
+                    } else {
+                        that.setState({
+                            apiExecute: false,
+                            serverResp: JSON.stringify(result, null, 3)
+                        })
+                    }
+                }
+            }
+            let isBinaryResult = false;
+            if (clickedApi.produces) {
+                for (const singleProducer of clickedApi.produces) {
+                    console.log(singleProducer)
+                    if (-1 !== singleProducer.indexOf('octet-stream')
+                        || -1 !== singleProducer.indexOf('excel')
+                        || -1 !== singleProducer.indexOf('download')
+                        || -1 !== singleProducer.indexOf('pdf')
+                        || -1 !== singleProducer.indexOf('word')) {
+                        isBinaryResult = true;
+                    }
                 }
             }
             if (clickedApi.method.toUpperCase() === 'POST') {
                 if (Util.strNotBlank(values['__bodyForm'])) {
-                    apiRemoteService.normalBodyPost(testApiUrl, values['__bodyForm'], values['__header']).then(function (result) {
-                        printResponse(result)
-                    });
+                    if(isBinaryResult){
+                        apiRemoteService.normalBodyDownloadPost(testApiUrl, values['__bodyForm'], values['__header']).then(function (result) {
+                            printResponse(result)
+                        });
+                    }else{
+                        apiRemoteService.normalBodyPost(testApiUrl, values['__bodyForm'], values['__header']).then(function (result) {
+                            printResponse(result)
+                        });
+                    }
                 } else {
                     apiRemoteService.normalFormPost(testApiUrl, values['__form'], values['__header']).then(function (result) {
                         printResponse(result)
@@ -376,9 +432,48 @@ class TestForm extends Component {
         }
     }
 
+
+
+    buildResponsePanel(clickedApi) {
+        let isBinaryResult = false;
+        if (clickedApi.produces) {
+            for (const singleProducer of clickedApi.produces) {
+                console.log(singleProducer)
+                if (-1 !== singleProducer.indexOf('octet-stream')
+                    || -1 !== singleProducer.indexOf('excel')
+                    || -1 !== singleProducer.indexOf('download')
+                    || -1 !== singleProducer.indexOf('pdf')
+                    || -1 !== singleProducer.indexOf('word')) {
+                    isBinaryResult = true;
+                }
+            }
+        }
+        if (isBinaryResult) {
+            return (
+                <div>
+                    <br/>
+                    <div id="download-file"></div>
+                </div>
+            )
+        } else {
+            return (
+                <CodeMirror ref={this.codeMirrorRef}
+                            value={this.state.serverResp}
+                            options={{
+                                mode: 'javascript',
+                                theme: 'material',
+                                readOnly: true,
+                                lineNumbers: true
+                            }}
+                />
+            )
+        }
+    }
+
     render() {
         const {getFieldDecorator} = this.props.form;
         const {httpType, apiUrlPrefix, clickedApi} = this.props;
+
 
         return (
             <div>
@@ -403,15 +498,7 @@ class TestForm extends Component {
                     <FormattedMessage id="server_response"/>
                 </h3>
                 <div style={{height: 435, marginBottom: 20}}>
-                    <CodeMirror ref={this.codeMirrorRef}
-                                value={this.state.serverResp}
-                                options={{
-                                    mode: 'javascript',
-                                    theme: 'material',
-                                    readOnly: true,
-                                    lineNumbers: true
-                                }}
-                    />
+                    {this.buildResponsePanel(clickedApi)}
                 </div>
             </div>
         );

@@ -40,7 +40,46 @@ react + umiJs + ant design
 ## 注意点
 
 * 后端服务一定要启用跨域支持
-* 暂不支持对文件上传和下载的接口进行测试
+* 暂不支持对文件上传的接口进行测试
+* 对于post文件下载, 服务器端必须明确的指定resonse的produces的值,且文件名必须指定在`Content-Disposition`中,值格式为:`attachment;filename=真正的文件名`,当produces值包含如下任一一个词时,则认为是下载:
+  octet-stream, excel, download, pdf, word
+
+post文件下载,后端代码节选:
+
+```java
+@PostMapping(value = "download/single", produces = "application/octet-stream")
+@ApiOperation(value = "下载单个表的代码")
+public void downloadSingle(@RequestBody TableCodeGeneratorConfigDTO tableCodeGeneratorConfigDTO, HttpServletResponse response) throws UnsupportedEncodingException {
+    response.reset();
+    String fileName = "生成的代码.zip";
+    // 对文件名进行url编码,前端需要对文件名进行一次url解码,目的是为了解决中文文件名乱码问题
+    String encodeFileName = URLEncoder.encode(fileName, "UTF-8");
+    response.setContentType("application/octet-stream");
+    // 开启跨域支持
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Expose-Headers", "*");
+    // 在response的Content-Disposition中指定文件名
+    response.setHeader("Content-Disposition", "attachment;filename=" + encodeFileName);
+    response.setHeader("Pragma", "no-cache");
+    OutputStream out = null;
+    try {
+        out = response.getOutputStream();
+        this.codeGeneratorService.generatorCode2File(tableCodeGeneratorConfigDTO, out);
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if (null != out) {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
+
+关于如何实现post文件下载,可参考我的简书: https://www.jianshu.com/p/a3c921b69ab1
 
 
 

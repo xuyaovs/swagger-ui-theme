@@ -67,6 +67,25 @@ export default {
         })
     },
     /**
+     * 发送POST请求
+     * @param {string} url 请求url
+     * @param {object} params 请求参数(对象数据类型)
+     */
+    bodyPostDownload(url, data = {}, {timeout = defaultTimeout, headers = {}} = {}) {
+        return axios({
+            method: 'post', // 请求协议
+            url: url, // 请求的地址
+            data: data,
+            responseType: 'blob', // 表明返回服务器返回的数据类型
+            timeout: timeout, // 超时时间, 单位毫秒
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': 'application/json',
+                ...headers
+            }
+        })
+    },
+    /**
      * 发送Put请求
      * @param {string} url 请求url
      * @param {object} params 请求参数(对象数据类型)
