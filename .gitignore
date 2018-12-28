@@ -69,3 +69,6 @@ my-docker.zip
 yarn-error.log
 
 .idea
+
+src/pages/.umi
+src/pages/.umi-production

@@ -56,7 +56,7 @@ let routes = [
 ];
 window.g_plugins.applyForEach('patchRoutes', { initialValue: routes });
 
-export default function() {
+export default function RouterWrapper() {
   return (
 <Router history={window.g_history}>
       { renderRoutes(routes, {}) }

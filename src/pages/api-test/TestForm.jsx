@@ -5,7 +5,7 @@ import {UnControlled as CodeMirror} from 'react-codemirror2';
 import {FormattedMessage} from 'react-intl';
 
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
+import 'codemirror/theme/dracula.css';
 
 import PropTypes from 'prop-types'
 
@@ -204,6 +204,8 @@ class TestForm extends Component {
             const paramName = singleParam.name;
             if (singleParam.type === 'object') {
                 paramVal = this.buildObjectInitVal(singleParam);
+            } else if(typeof(singleParam.children)!=='undefined' && null!==singleParam.children && singleParam.children.length>0){
+                initialValue = this.buildObjectInitVal(singleParam);
             } else {
                 paramVal = singleParam.default === '' ? singleParam.example : singleParam.default;
                 if (paramVal === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
@@ -228,7 +230,9 @@ class TestForm extends Component {
                 let initialValue;
                 if (singleParam.type === 'object') {
                     initialValue = this.buildObjectInitVal(singleParam);
-                } else {
+                } else if(typeof(singleParam.children)!=='undefined' && null!==singleParam.children && singleParam.children.length>0){
+                    initialValue = this.buildObjectInitVal(singleParam);
+                }else {
                     initialValue = singleParam.default === '' ? singleParam.example : singleParam.default;
                     if (initialValue === "" && 'undefined' !== typeof(singleParam.type) && null !== singleParam.type && singleParam.type.startsWith("array")) {
                         initialValue = [];
@@ -247,8 +251,8 @@ class TestForm extends Component {
                         <CodeMirror
                             value={JSON.stringify(reqData, null, 3)}
                             options={{
-                                mode: 'javascript',
-                                theme: 'material',
+                                mode: 'json',
+                                theme: 'dracula',
                                 lineNumbers: true
                             }}
                             onChange={(editor, data, value) => {
@@ -363,7 +367,6 @@ class TestForm extends Component {
                             oldLink.remove();
                         }
                         document.getElementById('download-file').appendChild(link);
-                        console.log(document.getElementById('download-file'))
                         that.setState({
                             apiExecute: false
                         })
@@ -378,7 +381,6 @@ class TestForm extends Component {
             let isBinaryResult = false;
             if (clickedApi.produces) {
                 for (const singleProducer of clickedApi.produces) {
-                    console.log(singleProducer)
                     if (-1 !== singleProducer.indexOf('octet-stream')
                         || -1 !== singleProducer.indexOf('excel')
                         || -1 !== singleProducer.indexOf('download')
@@ -438,7 +440,6 @@ class TestForm extends Component {
         let isBinaryResult = false;
         if (clickedApi.produces) {
             for (const singleProducer of clickedApi.produces) {
-                console.log(singleProducer)
                 if (-1 !== singleProducer.indexOf('octet-stream')
                     || -1 !== singleProducer.indexOf('excel')
                     || -1 !== singleProducer.indexOf('download')
@@ -460,8 +461,8 @@ class TestForm extends Component {
                 <CodeMirror ref={this.codeMirrorRef}
                             value={this.state.serverResp}
                             options={{
-                                mode: 'javascript',
-                                theme: 'material',
+                                mode: 'json',
+                                theme: 'dracula',
                                 readOnly: true,
                                 lineNumbers: true
                             }}
